@@ -1,0 +1,323 @@
+/* ======================================
+   GLOBAL RESET & BASE STYLES
+   ====================================== */
+   :root {
+    /* Color Variables */
+    --primary-color: #780202;
+    --secondary-color: #934e09;
+    --accent-color: #ffff00;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --shadow-dark: rgba(0, 0, 0, 0.7);
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    
+    /* Font Variables */
+    --heading-font: 'Montserrat', sans-serif;
+    --body-font: 'Open Sans', sans-serif;
+    
+    /* Size Variables */
+    --container-max-width: 1200px;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+    --border-radius: 10px;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  
+  /* ======================================
+     TYPOGRAPHY
+     ====================================== */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-shadow {
+    text-shadow: 1px 1px 3px var(--shadow-dark);
+  }
+  
+  /* ======================================
+     HERO TITLE STYLES
+     ====================================== */
+  .text-center1 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-family: var(--heading-font);
+    color: var(--text-light);
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px var(--shadow-dark),
+      0 0 20px var(--primary-color),
+      0 0 30px var(--secondary-color),
+      0 0 40px var(--accent-color);
+    margin-bottom: 5vh;
+    animation: glow 2s infinite alternate ease-in-out;
+    padding: 0 var(--spacing-md);
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 2px 2px 4px var(--shadow-dark), 
+        0 0 20px var(--primary-color), 
+        0 0 30px var(--secondary-color), 
+        0 0 40px var(--accent-color);
+    }
+    
+    100% {
+      text-shadow: 2px 2px 4px var(--shadow-dark), 
+        0 0 30px var(--primary-color), 
+        0 0 40px var(--secondary-color), 
+        0 0 60px var(--accent-color);
+    }
+  }
+  
+  /* ======================================
+     LAYOUT & CONTAINERS
+     ====================================== */
+  .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 5vh;
+  }
+  
+  .form-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+  
+  /* ======================================
+     BACKGROUND STYLES
+     ====================================== */
+  .bg-image {
+    background-image: url("Multimedia/mario-1558063_1280.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  /* Add a subtle overlay to improve text readability */
+  .bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)); */
+    z-index: 0;
+  }
+  
+  .bg-image > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* ======================================
+     FORM STYLES
+     ====================================== */
+  .form-container {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    padding: clamp(20px, 4vw, 50px);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-dark);
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .form-label {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 600;
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+  }
+  
+  .form-control {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-family: var(--body-font);
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: calc(var(--border-radius) / 2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.25);
+  }
+  
+  .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* ======================================
+     BUTTON STYLES
+     ====================================== */
+  .btn {
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    font-weight: 700;
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    border-radius: calc(var(--border-radius) / 2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    border: none;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-light);
+    box-shadow: 0 4px 10px var(--shadow-light);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px var(--shadow-light);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  }
+  
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px var(--shadow-light);
+  }
+  
+  .btn-block {
+    width: 100%;
+    display: block;
+  }
+  
+  /* ======================================
+     RESPONSIVE ADJUSTMENTS
+     ====================================== */
+  @media (max-width: 768px) {
+    .bg-image {
+      background-attachment: scroll;
+      background-position: center center;
+    }
+    
+    .form-container {
+      width: 95%;
+      padding: var(--spacing-lg);
+    }
+    
+    .text-center1 {
+      margin-top: 4vh;
+      margin-bottom: 4vh;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .text-center1 {
+      font-size: 2rem;
+      margin-top: 3vh;
+      margin-bottom: 3vh;
+    }
+    
+    .form-container {
+      padding: var(--spacing-md);
+    }
+    
+    .form-label {
+      font-size: 1.1rem;
+    }
+    
+    .form-control {
+      font-size: 1rem;
+      padding: 10px;
+    }
+    
+    .btn {
+      font-size: 1rem;
+      padding: 10px 16px;
+    }
+  }
+  
+  /* ======================================
+     ANIMATION UTILITIES
+     ====================================== */
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ======================================
+     ADDITIONAL UTILITIES
+     ====================================== */
+  .mt-1 { margin-top: var(--spacing-sm); }
+  .mt-2 { margin-top: var(--spacing-md); }
+  .mt-3 { margin-top: var(--spacing-lg); }
+  .mt-4 { margin-top: var(--spacing-xl); }
+  
+  .mb-1 { margin-bottom: var(--spacing-sm); }
+  .mb-2 { margin-bottom: var(--spacing-md); }
+  .mb-3 { margin-bottom: var(--spacing-lg); }
+  .mb-4 { margin-bottom: var(--spacing-xl); }
