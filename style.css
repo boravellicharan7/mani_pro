@@ -131,7 +131,7 @@
      BACKGROUND STYLES
      ====================================== */
   .bg-image {
-    background-image: url("Multimedia/mario-1558063_1280.jpg");
+    background-image: url("./Multimedia/mario-1558063_1280.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

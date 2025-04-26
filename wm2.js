@@ -202,8 +202,8 @@ let startNewGameButton = document.getElementById('startNewGame');
 let pauseGameButton = document.getElementById('pauseGame');
 let flex = document.getElementsByClassName('flex')[0];
 let squares = document.querySelectorAll('.square');
-let gameMusic = new Audio('Multimedia/gameMusic.mp3');
-let hitMusic = new Audio('Multimedia/hitMusic.mp3');
+let gameMusic = new Audio('./Multimedia/gameMusic.mp3');
+let hitMusic = new Audio('./Multimedia/hitMusic.mp3');
 let highScoreH2 = document.getElementById('highScore');
 
 
